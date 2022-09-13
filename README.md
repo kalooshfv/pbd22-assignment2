@@ -4,14 +4,8 @@ Hyperlink: https://pbd22-assignment2.herokuapp.com/katalog/
 
 ## 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
 
-REQUEST -------->  URLS
-                    |
-                    V                    
-    Response <--- Views <---> Models
-                    Ʌ
-                    |
-                 Template
-                     
+![image](https://user-images.githubusercontent.com/96697117/189884519-9c1434a0-2103-481c-bce2-5e8c4a902907.png)
+              
 The following diagram illustrates the relations between the user and the Django framework, which applies the MVT (Model-View-Template) software pattern.
 
 First off, MVT is a structure with 3 components, which are: <br>
