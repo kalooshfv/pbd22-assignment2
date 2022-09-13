@@ -16,10 +16,10 @@ First off, MVT is a structure with 3 components, which are: <br>
   
 Among the MVT, there is also another layer called URL (consisting of the file urls.py) that processes incoming queries from the user to the MVT structure.
 
-The flow is as follows:
-  i) 
-  ii) 
-  iii)
+The flow is as follows: <br>
+  i) User inserts a request into the Django framework <br>
+  ii) Request is accepted and processed by urls.py, which then directs it to views.py
+  iii) If the request involves acquiring from the database, views.py will call a query to models.py
   iv)
   v)
 
