@@ -18,10 +18,11 @@ Among the MVT, there is also another layer called URL (consisting of the file ur
 
 The flow is as follows: <br>
   i) User inserts a request into the Django framework <br>
-  ii) Request is accepted and processed by urls.py, which then directs it to views.py
-  iii) If the request involves acquiring from the database, views.py will call a query to models.py
-  iv)
-  v)
+  ii) Request is accepted and processed by urls.py, which then directs it to views.py <br>
+  iii) If the request involves acquiring from the database, views.py will call a query to models.py <br>
+  iv) models.py will fetch the requested data from database and return it to views.py (return in the views function) <br>
+  v) After the data-related requests are done, views.py will then redirect to the template <br>
+  vi) The template will dictate how the resulted data will show up on the user's screen
 
 2. Explain why do we use virtual environments? Let's say, if we do not use the virtual environments, can we still create a Django web application?
 
