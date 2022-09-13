@@ -4,8 +4,8 @@ Hyperlink: https://pbd22-assignment2.herokuapp.com/katalog/
 
 ## 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
 
-USER <----> DJANGO <----> URL <-----> Views <-----> Model
-                                            <-----> Template
+REQUEST <----> URL <-----> Views <-----> Model
+                                 <-----> Template
                                             
 The following diagram illustrates the relations between the user and the Django framework, which applies the MVT (Model-View-Template) software pattern.
 
@@ -24,9 +24,11 @@ The flow is as follows: <br>
   v) After the data-related requests are done, views.py will then redirect to the template <br>
   vi) The template will dictate how the resulted data will show up on the user's screen
 
-2. Explain why do we use virtual environments? Let's say, if we do not use the virtual environments, can we still create a Django web application?
+## 2. Explain why do we use virtual environments? Let's say, if we do not use the virtual environments, can we still create a Django web application?
 
-
+Virtual environments are tools that seperates the dependencies of different projects by creating isolated environments for each project.
+We use virtual environments in situations where there are multiple applications that requires different third-party installations. Without virtual environments, there is a possibility for an error to occur when one project downloads an outdated/updated version of an installation, whereas it needs an updated/outdated version.
+Technically, we can still create a django web application without the use of virtual environments. But, within a practical setting where there are multiple projects inside the directory, it is always recommended to use a virtual environment.
 
 
 3. Explain how did you implement the steps on point 1 to point 4 above.
