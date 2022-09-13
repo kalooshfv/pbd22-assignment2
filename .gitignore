@@ -1,78 +1,137 @@
-# Virtual environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Python cache files
-__pycache__/
-
-# SQLite database
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
 db.sqlite3
-db.sqlite3-journal
-
-# User-uploaded media
 media
 
-# Collected static files
-staticfiles/
+# Backup files # 
+*.bak 
 
-# Coverage
-.coverage
-.coverage.*
-coverage.*
-htmlcov/
+# If you are using PyCharm # 
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
 
-# Chromedriver
-chromedriver
-chromedriver.exe
+# AWS User-specific
+.idea/**/aws.xml
 
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
+# Generated files
+.idea/**/contentModel.xml
 
-# Icon must end with two \r
-Icon
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
 
-# Thumbnails
-._*
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+# File-based project format
+*.iws
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# IntelliJ
+out/
 
-### Windows ###
-# Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
+# JIRA plugin
+atlassian-ide-plugin.xml
 
-# Dump file
-*.stackdump
+# Python # 
+*.py[cod] 
+*$py.class 
 
-# Folder config file
-[Dd]esktop.ini
+# Distribution / packaging 
+.Python build/ 
+develop-eggs/ 
+dist/ 
+downloads/ 
+eggs/ 
+.eggs/ 
+lib/ 
+lib64/ 
+parts/ 
+sdist/ 
+var/ 
+wheels/ 
+*.egg-info/ 
+.installed.cfg 
+*.egg 
+*.manifest 
+*.spec 
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+# Installer logs 
+pip-log.txt 
+pip-delete-this-directory.txt 
 
-# Windows shortcuts
-*.lnk
+# Unit test / coverage reports 
+htmlcov/ 
+.tox/ 
+.coverage 
+.coverage.* 
+.cache 
+.pytest_cache/ 
+nosetests.xml 
+coverage.xml 
+*.cover 
+.hypothesis/ 
+
+# Jupyter Notebook 
+.ipynb_checkpoints 
+
+# pyenv 
+.python-version 
+
+# celery 
+celerybeat-schedule.* 
+
+# SageMath parsed files 
+*.sage.py 
+
+# Environments 
+.env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/ 
+
+# mkdocs documentation 
+/site 
+
+# mypy 
+.mypy_cache/ 
+
+# Sublime Text # 
+*.tmlanguage.cache 
+*.tmPreferences.cache 
+*.stTheme.cache 
+*.sublime-workspace 
+*.sublime-project 
+
+# sftp configuration file 
+sftp-config.json 
+
+# Package control specific files Package 
+Control.last-run 
+Control.ca-list 
+Control.ca-bundle 
+Control.system-ca-bundle 
+GitHub.sublime-settings 
+
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
