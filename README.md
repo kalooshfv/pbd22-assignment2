@@ -31,4 +31,8 @@ We use virtual environments in situations where there are multiple applications 
 Technically, we can still create a django web application without the use of virtual environments. But, within a practical setting where there are multiple projects inside the directory, it is always recommended to use a virtual environment.
 
 
-3. Explain how did you implement the steps on point 1 to point 4 above.
+## 3. Explain how did you implement the steps on point 1 to point 4 above.
+
+My views function for point 1 uses the render function that is found in django.shortcuts. The render() function takes the request object as its first argument, a template name as its second argument and a dictionary as its optional third argument. The object is found in models.py, the template would be an HTML file, and the dictionary (found in the function itself) used would contain the items found in a json file. This render() function sorts out most needs regarding mapping to the database and HTML file. <br>
+Deployment to Heroku was done by including a Procfile to be read and identified by Heroku, and a dpl.yml file included in the template. A .gitignore file was also included by copy-pasting from the web. Then, I inserted the HEROKU_API_KEY and HEROKU_APP_NAME secrets onto the repository. From there, it was a matter of connecting Heroku to my Github repository, and the app was immediately deployed.
+
