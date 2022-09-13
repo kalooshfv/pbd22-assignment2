@@ -9,9 +9,9 @@ USER <----> DJANGO <----> URL <-----> Views <-----> Model
                                             
 The following diagram illustrates the relations between the user and the Django framework, which applies the MVT (Model-View-Template) software pattern.
 
-First off, MVT is a structure with 3 components, which are:
-  a. Models: defines the data that is stored in the database and the methods of its access
-  b. View: defines how models and template communicate, and is the primary logic layer of MVT
+First off, MVT is a structure with 3 components, which are: <br>
+  a. Models: defines the data that is stored in the database and the methods of its access <br>
+  b. View: defines how models and template communicate, and is the primary logic layer of MVT <br>
   c. Template: defines how the data is served to the user and how it looks on the screen
   
 Among the MVT, there is also another layer called URL (consisting of the file urls.py) that processes incoming queries from the user to the MVT structure.
