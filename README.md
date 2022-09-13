@@ -4,9 +4,14 @@ Hyperlink: https://pbd22-assignment2.herokuapp.com/katalog/
 
 ## 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
 
-REQUEST <----> URL <-----> Views <-----> Model
-                                 <-----> Template
-                                            
+REQUEST -------->  URLS
+                    |
+                    V                    
+    Response <--- Views <---> Models
+                    Ʌ
+                    |
+                 Template
+                     
 The following diagram illustrates the relations between the user and the Django framework, which applies the MVT (Model-View-Template) software pattern.
 
 First off, MVT is a structure with 3 components, which are: <br>
@@ -22,7 +27,8 @@ The flow is as follows: <br>
   iii) If the request involves acquiring from the database, views.py will call a query to models.py <br>
   iv) models.py will fetch the requested data from database and return it to views.py (return in the views function) <br>
   v) After the data-related requests are done, views.py will then redirect to the template <br>
-  vi) The template will dictate how the resulted data will show up on the user's screen
+  vi) The template will dictate how the resulted data will show up on the user's screen <br>
+  vii) Response in the form of a web page will be shown to user
 
 ## 2. Explain why do we use virtual environments? Let's say, if we do not use the virtual environments, can we still create a Django web application?
 
