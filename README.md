@@ -2,7 +2,7 @@
 
 Hyperlink: https://pbd22-assignment2.herokuapp.com/katalog/
 
-*1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
+## 1. Create a diagram containing client request to the Django web application and its response. Also explain the flow of the diagram and how the urls.py, views.py, models.py and HTML files connected each other.
 
 USER <----> DJANGO <----> URL <-----> Views <-----> Model
                                             <-----> Template
