@@ -6,6 +6,7 @@ Hyperlink: https://pbd22-assignment2.herokuapp.com/katalog/
 
 USER <----> DJANGO <----> URL <-----> Views <-----> Model
                                             <-----> Template
+                                            
 The following diagram illustrates the relations between the user and the Django framework, which applies the MVT (Model-View-Template) software pattern.
 
 First off, MVT is a structure with 3 components, which are:
