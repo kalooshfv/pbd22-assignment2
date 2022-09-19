@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 1,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Kimi No Na Wa (Your Name)",
+            "item_rating": 4,
+            "item_release_date": "December 7, 2016",
+            "item_review": "Wasn't number 1 in MAL for nothing. Revolutionary, despite being a tad overrated."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 2,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Koe no Katachi (A Silent Voice)",
+            "item_rating": 5,
+            "item_release_date": "May 3, 2017",
+            "item_review": "A simple and relatable story done well; props, Kyoto Animation."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 3,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Josee, the Tiger and the Fish",
+            "item_rating": 4,
+            "item_release_date": "May 19, 2021",
+            "item_review": "The soundtrack in particular was better than most in this one."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 4,
+        "fields": {
+            "item_watched": "No",
+            "item_title": "Fireworks",
+            "item_rating": 3,
+            "item_release_date": "October 26, 2010",
+            "item_review": "Music video from DAOKO x Kenshi Yonezu seems interesting enough. On the chopping block."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 5,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Final Fantasy VII: Advent Children",
+            "item_rating": 3,
+            "item_release_date": "September 14, 2005",
+            "item_review": "One of the better 3D-animated anime movies to-date; besides, Final Fantasy is always a treat."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 6,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Hotarubi no Mori e",
+            "item_rating": 5,
+            "item_release_date": "September 17, 2011",
+            "item_review": "44 minutes went by too quick; an underrated masterpiece. "
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 7,
+        "fields": {
+            "item_watched": "No",
+            "item_title": "Nakitai Watashi wa Neko o Kaburu (A Whisker Away)",
+            "item_rating": 3,
+            "item_release_date": "June 18, 2020",
+            "item_review": "Didn't take the world by storm at any means, but would still be a good watch."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 8,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Violet Evergarden",
+            "item_rating": 3,
+            "item_release_date": "March 3, 2021",
+            "item_review": "Extremely pretty, but didn't do as well story-wise as other KyotoAni pieces."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 9,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Kurenai no Buta (Porco Rosso)",
+            "item_rating": 4,
+            "item_release_date": "July 18, 1992",
+            "item_review": "Goes under the Ghibli radar for the most part; again, underrated."
+        }
+    },
+    {
+        "model": "mywatchlist.watchlistitem",
+        "pk": 10,
+        "fields": {
+            "item_watched": "Yes",
+            "item_title": "Dragonball: Evolution",
+            "item_rating": 1,
+            "item_release_date": "April 10, 2009",
+            "item_review": "Traumatized my childhood."
+        }
+    }
+]
