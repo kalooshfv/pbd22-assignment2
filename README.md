@@ -21,5 +21,8 @@ Then, to fulfill the checklist regarding implementing HTML, JSON, and XML togeth
 Finally, I edited the Procfile of the app so it would migrate the models and load the JSON file when I deployed it. Then, I pushed the local repository onto GitHub, and it automatically deployed onto Heroku.
  
 ## 4. Access three URLs in point 6 using Postman, take screenshots, and add them to README.md.
+![Assignment 3 Postman HTML](https://user-images.githubusercontent.com/96697117/191449984-c8a696a2-7c4b-4ee6-af45-2a165abc922c.png)
+![Assignment 3 Postman JSON](https://user-images.githubusercontent.com/96697117/191449922-113f02e9-e2df-4229-925c-2c29c984bafd.png)
+![Assignment 3 Postman XML](https://user-images.githubusercontent.com/96697117/191449942-848e977c-0045-4147-a550-49fbbf8a2df4.png)
 
 
