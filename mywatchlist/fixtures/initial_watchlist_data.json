@@ -38,7 +38,7 @@
         "fields": {
             "item_watched": "No",
             "item_title": "Fireworks",
-            "item_rating": 3,
+            "item_rating": 0,
             "item_release_date": "October 26, 2010",
             "item_review": "Music video from DAOKO x Kenshi Yonezu seems interesting enough. On the chopping block."
         }
@@ -71,9 +71,9 @@
         "fields": {
             "item_watched": "No",
             "item_title": "Nakitai Watashi wa Neko o Kaburu (A Whisker Away)",
-            "item_rating": 3,
+            "item_rating": 0,
             "item_release_date": "June 18, 2020",
-            "item_review": "Didn't take the world by storm at any means, but would still be a good watch."
+            "item_review": "Haven't seen beyond the trailer but seems fun."
         }
     },
     {
