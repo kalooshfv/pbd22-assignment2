@@ -4,26 +4,24 @@
     <title>My Anime Watchlist 2022</title>
     <script>
       function movieTrackRecord() {
-        var list_item = "{{ list_item }}";
-        var watched = 0;
-        var not_watched = 0;
+        var list_item = "{{ list_item }}"
+        var watched = 0
+        var not_watched = 0
         for (movie in list_item) {
           if (movie.item_watched == "Yes") {
             watched += 1
           } else if (movie.item_watched == "No") {
             not_watched += 1
           }
-        };
+        }
         if (watched >= not_watched) {
           alert("Congratulations, you have watched a lot of movies!")
         } else {
           alert("Woah, you need to watch more movies!")
-        };
+        }
       }
     </script>
   {% endblock meta %}
-
-
  {% block content %}
 
 
@@ -35,6 +33,7 @@
   <h5>Student ID: </h5>
   <p>{{npm}}</p>
 
+  <button onclick="movieTrackRecord()">Click me to review your watchlist!</button>
   <table>
     <tr>
       <th>Watched</th>
