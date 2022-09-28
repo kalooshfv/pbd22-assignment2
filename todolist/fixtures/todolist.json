@@ -1,1 +1,32 @@
-[{"id": 1, "task_user_id": 1, "task_date": "2022-09-28T19:31:11.036Z", "task_title": "Asisten Dosen Sit-In", "task_description": "28-09-2022 Sit In di A7-14"}, {"id": 2, "task_user_id": 1, "task_date": "2022-09-28T19:31:40.269Z", "task_title": "Assignment 4 PBD", "task_description": "Read pbp-fasilkom-ui.github.io for more details."}, {"id": 3, "task_user_id": 2, "task_date": "2022-09-28T19:32:10.448Z", "task_title": "Dumb Things", "task_description": "Dummy does dumb things"}]
+[
+{
+    "model": "todolist.todotask",
+    "pk": 1,
+    "fields": {
+        "task_user": 1,
+        "task_date": "2022-09-28T19:31:11.036Z",
+        "task_title": "Asisten Dosen Sit-In",
+        "task_description": "28-09-2022 Sit In di A7-14"
+    }
+},
+{
+    "model": "todolist.todotask",
+    "pk": 2,
+    "fields": {
+        "task_user": 1,
+        "task_date": "2022-09-28T19:31:40.269Z",
+        "task_title": "Assignment 4 PBD",
+        "task_description": "Read pbp-fasilkom-ui.github.io for more details."
+    }
+},
+{
+    "model": "todolist.todotask",
+    "pk": 3,
+    "fields": {
+        "task_user": 2,
+        "task_date": "2022-09-28T19:32:10.448Z",
+        "task_title": "Dumb Things",
+        "task_description": "Dummy does dumb things"
+    }
+}
+]
