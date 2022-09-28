@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 
 
@@ -67,5 +67,9 @@ def create_task(request):
         form = TaskForm()
     return render(request, 'create_task.html', {'form': form})
 
+def jsondata(request):
+    data = list(ToDoTask.objects.values())
+    return JsonResponse(data, safe = False)
+    
 
 
