@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>Assignment 4 PBP/PBD</h1>
+
+  <h5>Username:</h5>
+  <p>{{ username }}</p>
+
+  <button><a href="{% url 'todolist:create_task' %}">Create a Task!</a></button>
+  <table>
+    <tr>
+      <th>To-Do Date</th>
+      <th>To-Do Title</th>
+      <th>To-Do Description</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% comment %} Add data below {% endcomment %}
+    {% for item in list_item %}
+        <tr>
+            <th>{{item.task_date}}</th>
+            <th>{{item.task_title}}</th>
+            <th>{{item.task_description}}</th>
+        </tr>
+    {% endfor %}
+  </table>
+<h5>Last Login: {{ last_login }}</h5>
+<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+ {% endblock content %}

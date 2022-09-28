@@ -1,0 +1,35 @@
+[
+    {
+        "model": "todolist.todotask",
+        "pk": 1,
+        "fields": {
+            "task_user": "Dummy1",
+            "task_user.password": "Dummy1",
+            "task_date": "2004-02-05",
+            "task_title": "A Very Dumb Thing",
+            "task_description": "Dummy does dumb things"
+        }
+    },
+    {
+        "model": "todolist.todotask",
+        "pk": 2,
+        "fields": {
+            "task_user.username": "Dummy1",
+            "task_user.password": "Dummy1",
+            "task_date": "2004-02-05",
+            "task_title": "Another Very Dumb Thing",
+            "task_description": "Dumb Things 2 Electric Boogaloo"
+        }
+    },
+    {
+        "model": "todolist.todotask",
+        "pk": 3,
+        "fields": {
+            "task_user.username": "kaloosh.falito",
+            "task_user.password": "2106720916",
+            "task_date": "2004-02-05",
+            "task_title": "Asdos",
+            "task_description": "Sit-In 2022"
+        }
+    }
+]
