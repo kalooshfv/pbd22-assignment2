@@ -62,13 +62,12 @@
             <th>{{item.task_title}}</th>
             <th>{{item.task_description}}</th>
             <th>{{item.task_isfinished}}</th>
-            <th><button><a href="finish/{{item.id}}">Finish Task
+            <th><button><a href="finish/{{item.id}}">Update Task
             </a></button></th>
             <th><button><a href="delete/{{item.id}}">Delete Task
             </a></button></th>
         </tr>
     {% endfor %}
   </table>
-<h5>Last Login: {{ last_login }}</h5>
 <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
  {% endblock content %}

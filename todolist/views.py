@@ -20,7 +20,6 @@ def show_todolist(request):
     context = {
         'username': request.user.username,
         'list_item': data_todolist_item,
-        'last_login': request.COOKIES['last_login'],
     }
     return render(request, "todolist.html", context)
 
@@ -74,7 +73,7 @@ def jsondata(request):
 
 def update_finish(request, id):
     object = get_object_or_404(ToDoTask, pk = id)
-    object.task_isfinished = True
+    object.task_isfinished = not object.task_isfinished
     object.save()
     return HttpResponseRedirect(reverse("todolist:show_todolist"))
 
