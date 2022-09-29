@@ -1,6 +1,7 @@
+from operator import truediv
 from todolist.models import *
 from todolist.forms import *
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -70,6 +71,14 @@ def create_task(request):
 def jsondata(request):
     data = list(ToDoTask.objects.values())
     return JsonResponse(data, safe = False)
-    
 
+def update_finish(request, id):
+    object = get_object_or_404(ToDoTask, pk = id)
+    object.task_isfinished = True
+    object.save()
+    return HttpResponseRedirect(reverse("todolist:show_todolist"))
 
+def update_delete(request, id):
+    object = get_object_or_404(ToDoTask, pk = id)
+    object.delete()
+    return HttpResponseRedirect(reverse("todolist:show_todolist"))

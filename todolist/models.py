@@ -10,4 +10,5 @@ class ToDoTask(models.Model):
     task_date = models.DateTimeField(default = datetime.datetime.now)
     task_title = models.TextField()
     task_description = models.TextField()
+    task_isfinished = models.BooleanField(default = False)
 

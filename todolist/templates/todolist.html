@@ -13,6 +13,9 @@
       <th>To-Do Date</th>
       <th>To-Do Title</th>
       <th>To-Do Description</th>
+      <th>To-Do Finished Status</th>
+      <th>Finish the Task</th>
+      <th>Delete the Task</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
     {% comment %} Add data below {% endcomment %}
@@ -21,6 +24,11 @@
             <th>{{item.task_date}}</th>
             <th>{{item.task_title}}</th>
             <th>{{item.task_description}}</th>
+            <th>{{item.task_isfinished}}</th>
+            <th><button><a href="finish/{{item.id}}">Finish Task
+            </a></button></th>
+            <th><button><a href="delete/{{item.id}}">Delete Task
+            </a></button></th>
         </tr>
     {% endfor %}
   </table>
