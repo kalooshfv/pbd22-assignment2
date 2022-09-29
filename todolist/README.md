@@ -1,6 +1,9 @@
 # Assignment 4 Essay
 
 https://pbd22-assignment2.herokuapp.com/todolist <br>
+Collaborator: Mohammad Attar <br>
+References: <br>
+https://www.synopsys.com/glossary/what-is-csrf.html#:~:text=A%20CSRF%20attack%20exploits%20a,a%20user%20without%20their%20consent. <br>
 
 ## What does {% csrf_token %} do in the <form> element? What happens if there is no such "code snippet" in the <form> element? 
 A CSRF (Cross-Site Request Forgery) token is a tag that Django has implemented to prevent a CSRF attack, which is when an attacker induces users to perform actions that they do not intend to perform. This happens when the user is in a session in a certain Web application, and by doing something unaware (e.g. clicking a malicious URL), a request gets crafted and sent into the Web application without the user's consent. Since the application cannot differentiate if the request is actually made by the user or otherwise, the unauthorized request gets executed.  <br>
