@@ -1,9 +1,6 @@
 # Assignment 4 Essay
 
 https://pbd22-assignment2.herokuapp.com/todolist <br>
-Collaborator: Mohammad Attar <br>
-References: <br>
-https://www.synopsys.com/glossary/what-is-csrf.html#:~:text=A%20CSRF%20attack%20exploits%20a,a%20user%20without%20their%20consent. <br>
 
 ## What does {% csrf_token %} do in the <form> element? What happens if there is no such "code snippet" in the <form> element? 
 A CSRF (Cross-Site Request Forgery) token is a tag that Django has implemented to prevent a CSRF attack, which is when an attacker induces users to perform actions that they do not intend to perform. This happens when the user is in a session in a certain Web application, and by doing something unaware (e.g. clicking a malicious URL), a request gets crafted and sent into the Web application without the user's consent. Since the application cannot differentiate if the request is actually made by the user or otherwise, the unauthorized request gets executed.  <br>
@@ -31,3 +28,7 @@ Finally, I git added, committed, and pushed into the github repository, and the 
 Afterwards, I continued the project to include a finished status, an update finished status button, and a delete task button. First, I updated the To-Do List home page to include 3 new columns: a finished status, an update status button, and a delete task button. I then updated models.py to include a field task_isfinished with default value False. After executing makemigrations and migrate, I then created 2 new functions in views.py called update_finish and update_delete. <br>
 update_finish would accept a parameter id, and filter all tasks based on that id. Then, it would update the task_isfinished property to True, save the changes, and redirect the user to the home page. update_delete also accepts an id parameter and filters the tasks based on that id, but it instead deletes the task altogether instead of updating it. <br>
 Lastly, I updated urls.py to include the newly made functions. Those urls would also define the id that would be passed onto the function in views.py (e.g. 'finish/<int:id>'). The buttons in the home page would also need to be updated to include the same links as in urls.py. <br>
+ <br><br>
+Collaborator: Mohammad Attar <br>
+References: <br>
+https://www.synopsys.com/glossary/what-is-csrf.html#:~:text=A%20CSRF%20attack%20exploits%20a,a%20user%20without%20their%20consent. <br>
