@@ -13,7 +13,7 @@ def show_watchlist(request):
             watched += 1
         elif movie.item_watched == "No":
             not_watched += 1
-    if watched >= not_watched:
+    if watched >= not_watched and watched > 0:
         report = "Congratulations, you have watched a lot of movies!"
     else:
         report = "Woah, you need to watch more movies!"
