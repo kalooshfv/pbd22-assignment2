@@ -3,56 +3,54 @@
 {% block meta %}
 <title>Task Creation</title>
 <style>
-    .styled-table {
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        min-width: 400px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    }
-    .styled-table thead tr {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
-    }
-    .styled-table th,
-    .styled-table td {
-        padding: 12px 15px;
-    }
-    .styled-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-    .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
-    }
-
-    .styled-table tbody tr:last-of-type {
-        border-bottom: 2px solid #009879;
-    }
-    .styled-table tbody tr.active-row {
-      font-weight: bold;
-      color: #009879;
-    }
+  html, body {overflow: hidden;}
+  @media only screen and (max-width: 1000px) {
+      .container {
+          margin-top: 8vh;
+      }
+  }
+  @media only screen and (max-width: 653px) {
+      .form-outline {
+          width: 95%;
+      } 
+      .form-control-lg{
+          width: 95%;
+      }
+  }
   </style>
 {% endblock meta %}
 
 {% block content %}
 
-<div class = "create_task">
-    <h1>Create a Task!</h1>
+<form method="POST" action = "">
+    {% csrf_token %}
+<section class="vh-100">
+    <div class="container py-5 h-99">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              
+  
+              <h3 class="text-white mb-3">CREATE A NEW TASK!</h3>
+       
+              <div class="form-outline form-white mb-4">
+                <input class="form-control" type="text" name="task_title" maxlength="64" required="" id="id_task_title" placeholder="Title your task!">
+              </div>
+  
+              <div class="form-outline form-white mb-4">
+                <textarea placeholder="Describe your task!" name="task_description" cols="40" rows="10" required="" id="id_task_description" spellcheck="false" class="form-control form-control-lg"></textarea>
+              </div>
 
-        <form method="POST">
-            {% csrf_token %}
-            <table class="styled-table">
-                {{ form.as_table }}
-                <tr>
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Create"/></td>
-                </tr>
-            </table>
-        </form>
-</div>
+  
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" value="Create!">Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
 
 {% endblock content %}

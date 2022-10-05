@@ -3,71 +3,84 @@
 {% block meta %}
 <title>To-Do List Homepage</title>
 <style>
-  .styled-table {
-      border-collapse: collapse;
-      margin: 25px 0;
-      font-size: 0.9em;
-      font-family: sans-serif;
-      min-width: 400px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
-  .styled-table thead tr {
-      background-color: #009879;
-      color: #ffffff;
-      text-align: left;
-  }
-  .styled-table th,
-  .styled-table td {
-      padding: 12px 15px;
-  }
-  .styled-table tbody tr {
-      border-bottom: 1px solid #dddddd;
-  }
+  html, body {overflow: auto;}
+  .card {
+    cursor: pointer;
 
-  .styled-table tbody tr:nth-of-type(even) {
-      background-color: #f3f3f3;
   }
-
-  .styled-table tbody tr:last-of-type {
-      border-bottom: 2px solid #009879;
+  .card:hover {
+    transform: scale(1.1);
   }
-  .styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+  @media only screen and (max-width: 1080px) {
+    .btn {
+      width: 100%;
+    }
+    .buttext {
+      font-size: 15px;
+    }
+    .card-footer {
+      padding-left: 22px;
+    }
+    .button {
+      padding-left: 7px;
+    }
+    
   }
-</style>
+  @media only screen and (max-width: 928px) {
+    .btn {
+      width: 100%;
+    }
+    .buttext {
+      font-size: 11px;
+    }
+    .card-footer {
+      padding-left: 15px;
+    }
+    .button {
+      padding-left: 4px;
+    }
+  }
+  @media only screen and (max-width: 764px) {
+    .btn {
+      width: 100%;
+    }
+    .buttext {
+      font-size: 20px;
+    }
+    .card-footer {
+      padding-left: 15px;
+    }
+    .button {
+      padding-left: 4px;
+    }
+  }
+  
+  </style>
 {% endblock meta %}
  {% block content %}
-
-  <h1>Assignment 4 PBP/PBD</h1>
-
-  <h5>Username:</h5>
-  <p>{{ username }}</p>
-
-  <button><a href="{% url 'todolist:create_task' %}">Create a Task!</a></button>
-  <table class="styled-table">
-    <tr>
-      <th>To-Do Date</th>
-      <th>To-Do Title</th>
-      <th>To-Do Description</th>
-      <th>To-Do Finished Status</th>
-      <th>Finish the Task</th>
-      <th>Delete the Task</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% comment %} Add data below {% endcomment %}
+ <div class="d-flex justify-content-center align-items-center">
+ 
+ <button class="container rounded-5 border border-5  my-5 bg-dark d-flex justify-content-center" style="width:25%; padding:1.5%;" >
+  <a href="{% url 'todolist:create_task' %}" style="color:white; text-decoration: none;"><h5 class="h5" style="color: white; text-align: center;">CREATE A NEW TASK!</h5>
+ </a></button>
+</div>
+<div class="row row-cols-1 row-cols-md-4" style="margin:5%;">
+  
     {% for item in list_item %}
-        <tr>
-            <th>{{item.task_date}}</th>
-            <th>{{item.task_title}}</th>
-            <th>{{item.task_description}}</th>
-            <th>{{item.task_isfinished}}</th>
-            <th><button><a href="finish/{{item.id}}">Update Task
-            </a></button></th>
-            <th><button><a href="delete/{{item.id}}">Delete Task
-            </a></button></th>
-        </tr>
+    <div class="col mb-4">
+        <div class="card text-white bg-dark mb-3 px-3">
+          <div class="card-header">Made on {{item.task_date}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{item.task_title}}</h5>
+            <h6 class="card-subtitle mb-2">Finished Status: {{item.task_isfinished}}</h6>
+            <p class="card-text">{{item.task_description}}</p>
+          </div>
+          <div class="card-footer"><table>
+          <tr><td><button class="btn btn-outline-dark bg-dark btn-lg px-2"><a href="finish/{{item.id}}" style="color:white; text-decoration: none;"><p class="buttext">Update</p>
+          </a></button></td>
+          <td><button class="btn btn-outline-dark bg-dark btn-lg px-2"><a href="delete/{{item.id}}" style="color:white; text-decoration: none;"><p class="buttext">Delete</p>
+          </a></button></td></tr></table></div>
+        </div>
+        </div>
     {% endfor %}
-  </table>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
  {% endblock content %}

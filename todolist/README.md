@@ -2,33 +2,49 @@
 
 https://pbd22-assignment2.herokuapp.com/todolist <br>
 
-## What does {% csrf_token %} do in the <form> element? What happens if there is no such "code snippet" in the <form> element? 
-A CSRF (Cross-Site Request Forgery) token is a tag that Django has implemented to prevent a CSRF attack, which is when an attacker induces users to perform actions that they do not intend to perform. This happens when the user is in a session in a certain Web application, and by doing something unaware (e.g. clicking a malicious URL), a request gets crafted and sent into the Web application without the user's consent. Since the application cannot differentiate if the request is actually made by the user or otherwise, the unauthorized request gets executed.  <br>
-The tag solves this issue by generating a token on the server side when rendering a page, and cross-checks this token for any requests that come back in. If a request doesn't contain the generated token, then the request does not get executed. <br>
-Without this code snippet or tag, then our application would be vulnurable to CSRF attacks, and might be liable for a breach of personal data, unsanctioned transactions, or other unsavory events. <br>
-  
-## Can we create the <form> element manually (without using a generator like {{ form.as_table }})? Explain generally how to create <form> manually.
-It is possible to generate a form manually. The generator {{ form.as_table }} uses a python file that contains a form object as reference to display onto an HTML file, but it is also possible to directly create a form on the HTML file itself. <br>
-You would generally use the form tag, followed by an attribute "method" which has a value of between "POST" and "GET". The main difference between the two is that GET carries request parameter appended in URL string while POST carries request parameter in message body. Then, you would use the input tag, along with its various attributes to give a slot where the user can input their data into the form. Additionally, you could use the label tag to specify what is expected on each input. A few frequently used examples of input types would be: radio, checkbox, text, button, date, email, file, and URL. <br>
+## What is the difference between Inline, Internal, and External CSS? What are the advantages and disadvantages of each style?
+Inline, Internal, and External CSS are three methods of applying CSS, categorized based on the location of the CSS code. Inline CSS is located inside an HTML tag. Internal CSS is located in the HTML file itself, in the HTML head using the style tag. External CSS utilizes a separate CSS file that is referenced in the HTML file's head. 
+<br>
+Inline CSS is by far the most specific method among the three, as you will add a style attribute straight in the element you're modifying without using selectors. Inline CSS is generally not used as much as the other two alternatives, but can be useful when we don't have access to external CSS files or only want to apply a style to one specific element. It is also very quick in the sense that quick fixes are generally done using inline CSS. But, it still stands that inline CSS is extremely tedious and repetitive when done solely on its own in a page.
+<br>
+Internal CSS is useful when the aim is to stylize one single HTML page. However, using this style when modifying multiple pages gets time-consuming very fast. Other than that, in Internal CSS, you can use class and ID selectors. Furthermore, you won't need to upload multiple files since the CSS code is embedded in the HTML file. This is a double-edged sword though, as having the CSS integrated in the HTML file will make that specific page load longer.<br>
+External CSS is useful when organizing a multi-paged application; one CSS file is used by multiple pages, which reduces repetition. Other than that, the absence of CSS code in HTML files will keep the HTML code clean and structured. Despite that, external CSS also poses some cons. Relying on an external CSS file will go awry when that file is not rendered/loaded correctly, which leaves the HTML bare in the application. Also, uploading or linking multiple CSS files increases your site's overall download time (as opposed to one specific page).
+<br>
 
-## Describe the data flow process from the submission made by the user through the HTML form, data storage in the database, until the appearance of the data that has been stored in the HTML template.
-When the user clicks the Submit button on the Create a Task page, views.py will execute the function create_task which accepts a request as a parameter. The request would be a form submission, hence its method could be checked to validate that it is a form submission. After validating that it is indeed a form submission, it then assigns a variable "form" to a form object TaskForm with data defined by the form submission request. <br>
-Then, the form's validity will be checked. Given that it is valid, the form itself will be saved onto the database but not yet committed. This form will be temporarily assigned to a variable "task". This is done so that the user that submitted the form could be kept track of. "task"'s field called "task_user" (which defines what user submitted the form) will be assigned to the request's user (the user that made the request). At long last, the form can be committed into the database via saving and committing "task". <br>
-After saving the form submission into the database, the app directs the user back to the main todolist page. At the moment the user submits the form and gets redirected, the database would have been updated already. This would be reflected on the todolist page itself, since the function show_todolist would update the HTML code found in the templates folder to include the newly created task into the table. <br>
-However, in the case where the request is not a form submission, the function would simply define form as an empty TaskForm object so that it could be passed into the Create a Task page template and displayed. This is done using the render function, along with a context containing said form. <br>
+## Describe the HTML5 tags that you know.
+A few general HTML tags: <ol>
+<li>head: section of HTML file to insert references to other files</li>
+<li>title: title of page visible on the application window</li>
+<li>body: main content of the HTML page</li>
+<li>hyperlink: clickable reference to other pages</li>
+<li>paragraph: plain and modifiable text</li>
+<li>bold: to make selected text bold</li>
+<li>italic: to make selected text italic</li>
+<li>underline: to underline selected text</li>
+<li>heading: larger text meant for headers</li>
+<li>line break: break to a new line</li>
+<li>image: insert images with a source</li>
+<li>table: a modifiable table</li>
+<li>input: asks user for input of various kinds</li>
+<li>ordered list: list that has logical ordering</li>
+<li>unordered list: list without logical ordering</li>
+<li>form: used to collect user input and pass into other applications</li>
+<li>div: divide the page into highly malleable sections</li>
+</ol>
 
-## Explain how you implement the checklist above.
-First, I created the app using the "python manage.py startapp todolist" command. Then, the "todolist" folder appeared on the application folder. After that, I added "todolist" as an installed app in the django project's settings. The same was also done in the django project's urls so it could be accessed via http://localhost:8000/todolist. <br>
-Moving on, I created a model called ToDoTask on the file models.py. ToDoTask had fields task_user (the user that created the task), task_date (when the task was made), task_title (the task's title), and task_description (what the task demands). task_user was made using a foreign key with a parameter of the User model from django.contrib.auth.models. task_date was made using the datetime module. Finally, task_title and task_description (both text fields) would be added later on when the user fills out the task creation form. <br>
-I then created the show_todolist, register, login and logout functions on views.py, and along with that, the register, login and home page HTML files as the templates. The show_todolist is decorated with a decoration that does not allow access unless the user is logged in; if logged in, the function will filter out the database to only include the tasks created by the user that logged in, and passes them on to the homepage (along with the user's username). The register function would use the UserCreationForm that is already included in django to detect a form submission, save the form, and commit it to the database. The login function would use the users included in the database to authorize whether the user's credentials are recorded. This is done using the request variable and the authorize function. Finally, the logout function (referenced by a hyperlink button in the hompage file) will redirect the user back to the login page. <br>
-The todolist homepage includes a table that displays tasks (their creation dates, titles, and descriptions). There is also 2 buttons: one will redirect to the Create a Task page, and the other logs the user out of the application. The register page contains a form that will request a username, and a password (along with password verification). The login page will request a username and password, and will reject the authorization if said username or password is not recorded. <br>
-The task creation page is created using a template called create_task.html, a file called form.py that contains a ModelForm object based on the model ToDoTask (containing fields task_title and task_description), and a function in views.py called create_task. The forms.py file will be referenced in both the template and the function. The template's purpose is just to display the form using {{ form.as_table }}. The function will (1) display the HTML file along with the attached form, (2) validate the form submission, (3) add the form (without the user that sent it in), (4) commit a form submission with the user sent in to the database, and (5) redirect the user back to the homepage. <br>
-After that, I modified the urls.py file to include all routings to all pages added into the project, which includes homepage, login, logout, register, and Create a Task pages/mechanisms. After all routings were done, I manually created 2 dummy users and 3 tasks (2 on kaloosh.falito and 1 on dummy1) using http://localhost:8000/todolist. Then, I used the command "python manage.py dumpdata auth.user > user.json" and "python manage.py dumpdata todolist.ToDoTask > todolist.json" to create fixture files that will be loaded at the time up uploadng into Heroku. After relocating the newly generated files into a fixtures file in the todolist application, I edited the Procfile to include the command "python manage.py loaddata user.json" and "python manage.py loaddata todolist.json". <br>
-Finally, I git added, committed, and pushed into the github repository, and the Procfile automatically uploaded the application onto Heroku. <br>
-Afterwards, I continued the project to include a finished status, an update finished status button, and a delete task button. First, I updated the To-Do List home page to include 3 new columns: a finished status, an update status button, and a delete task button. I then updated models.py to include a field task_isfinished with default value False. After executing makemigrations and migrate, I then created 2 new functions in views.py called update_finish and update_delete. <br>
-update_finish would accept a parameter id, and filter all tasks based on that id. Then, it would update the task_isfinished property to True, save the changes, and redirect the user to the home page. update_delete also accepts an id parameter and filters the tasks based on that id, but it instead deletes the task altogether instead of updating it. <br>
-Lastly, I updated urls.py to include the newly made functions. Those urls would also define the id that would be passed onto the function in views.py (e.g. 'finish/<int:id>'). The buttons in the home page would also need to be updated to include the same links as in urls.py. <br>
- <br><br>
-Collaborator: Mohammad Attar <br>
-References: <br>
-https://www.synopsys.com/glossary/what-is-csrf.html#:~:text=A%20CSRF%20attack%20exploits%20a,a%20user%20without%20their%20consent. <br>
+## Describe the types of CSS selectors you know.
+A few general CSS selectors: <ol>
+<li> star: targets every single element on the page
+<li> hash: targets elements by id
+<li> class: targets elements by class name
+<li> type: targets elements by its HTML tag type
+<li> descendant: targets the tags that belong to another tag
+<li> attribute: targets elements that have the defined attribute
+</ol>
+
+## Explain how you would implement the checklist above.
+Firstly, I integrated Boostrap into my todolist application by editing my base.html file's head. I did this by including multiple bootstrap links using the script tag. <br>
+Then, I searched for inspiration on the Internet as to how I would style my application pages. After I found one example that stuck with me, I inspected it using a feature built in Google Chrome, and wrote that code into my login, register, create_task, and homepage. <br>
+After modifying the base style to my tastes, I included a navbar by implementing a class in Bootstrap into my base.html file. I also added code that made the navbar change depending on if the user is authenticated or not. <br>
+Moving on, I modified the homepage by deleting the table I used in the previous assignment and replacing it with Bootstrap Cards. Said cards have a header containing the task's date, a body containing the task's title, description, and status. It would also have 2 buttons: one that let the status be updated and another that let the task be deleted on the card's footer. <br>
+Finally, I used media queries to implement responsiveness onto my application. By using the @media rule, I experimented using the inspect feature to find notable borders (width and height) of devices, and modified the page so that attributes could either fit into those borders, or would be deemed uneccessary enough to be removed. <br>

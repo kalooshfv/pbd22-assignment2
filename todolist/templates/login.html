@@ -3,77 +3,65 @@
 {% block meta %}
 <title>Login</title>
 <style>
-    .styled-table {
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        min-width: 400px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    html, body {overflow: hidden;}
+    @media only screen and (max-width: 1000px) {
+        .container {
+            margin-top: 8vh;
+        }
     }
-    .styled-table thead tr {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
+    @media only screen and (max-width: 653px) {
+        .form-outline {
+            width: 95%;
+        } 
+        .form-control-lg{
+            width: 95%;
+        }
     }
-    .styled-table th,
-    .styled-table td {
-        padding: 12px 15px;
+    @media only screen and (max-height: 600px) {
+        .card {
+            height: 72vh;
+        }
     }
-    .styled-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-
-    .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
-    }
-
-    .styled-table tbody tr:last-of-type {
-        border-bottom: 2px solid #009879;
-    }
-    .styled-table tbody tr.active-row {
-      font-weight: bold;
-      color: #009879;
-    }
-  </style>
+    </style>
 {% endblock meta %}
 
 {% block content %}
-
-<div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table class="styled-table">
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
+<form method="POST" action = "">
+    {% csrf_token %}
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-h-99">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                  <div class="card-body p-5 text-center">
+                    <div class="mb-md-5 mt-md-4 pb-5">
+                        <h2 class="fw-bold mb-2">LOGIN</h2>
+                        <p class="text-white-50 mb-5">Please enter your login and password!</p>
+                        <div class="form-outline form-white mb-4">
+                            <input type="text" name="username" placeholder="Username" class="form-control-lg">
+                        </div>
+                        <div class="form-outline form-white mb-4">
+                            <input type="password" name="password" placeholder="Password" class="form-control-lg">
+                        </div>
+                        <button class="btn btn-outline-light btn-lg px-5" type="submit" name="Login">Login</button>
+                        </div>
+                        <div>
+                            <p class="mb-0">Don't have an account? <a href="{% url 'todolist:register' %}" class="text-white-50 fw-bold">Register</a>
+                            </p><br>
+                            {% if messages %}
+                        
+                            {% for message in messages %}
+                                <b>{{ message }}</b>
+                            {% endfor %}
+                        
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
     </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    Don't have an account? <a href="{% url 'todolist:register' %}">Create Account</a>
-
-</div>
 
 {% endblock content %}
