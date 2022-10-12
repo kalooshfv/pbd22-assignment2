@@ -7,8 +7,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.urls import reverse
+from django.core import serializers
 
 
 # Create your views here.
@@ -23,6 +24,14 @@ def show_todolist(request):
     }
     return render(request, "todolist.html", context)
 
+
+def show_json(request):
+    if request.user.is_authenticated:
+        user = request.user
+    data = ToDoTask.objects.filter(task_user = user)
+    return HttpResponse(serializers.serialize("json", data), \
+        content_type="application/json")
+    
 def register(request):
     form = UserCreationForm()
     if request.method == "POST":
@@ -67,10 +76,6 @@ def create_task(request):
         form = TaskForm()
     return render(request, 'create_task.html', {'form': form})
 
-def jsondata(request):
-    data = list(ToDoTask.objects.values())
-    return JsonResponse(data, safe = False)
-
 def update_finish(request, id):
     object = get_object_or_404(ToDoTask, pk = id)
     object.task_isfinished = not object.task_isfinished
@@ -81,3 +86,15 @@ def update_delete(request, id):
     object = get_object_or_404(ToDoTask, pk = id)
     object.delete()
     return HttpResponseRedirect(reverse("todolist:show_todolist"))
+
+def add(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.task_user = request.user
+            task.save()
+            return HttpResponseRedirect(reverse("todolist:show_todolist"))
+    else:
+        form = TaskForm()
+    return render(request, 'todolist.html', {'form': form})
