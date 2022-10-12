@@ -1,1 +1,28 @@
+# Assignment 6 Essay
 
+https://pbd22-assignment2.herokuapp.com/todolist <br>
+
+## Describe the difference between asynchronous programming with synchronous programming.
+Synchronous and asynchronous programming are two types of programming models that differ on how they execute tasks. Synchronous, or sync, performs tasks one at a time, and can only perform another task if the previous has finished. Asynchronous, or async, on the other hand, can perform tasks in parallel to one another, hence completing a total amount of tasks in a shorter amount of time. In other words, async is multi-threaded whereas sync is single-threaded.<br>
+Other than that, asnyc is non-blocking, which means that it is capable of sending multiple requests to the server. Sync, being blocking, will only send one request at a time, and will wait for that request to be finished before sending another. <br> 
+Both offer inherent advantages and disadvantages despite the speed difference, and no one method rules above all. For example, async is generally not used when the tasks performed are not independent (one needs to wait for another), and sync is generally more useful for developers and is more utilized in developing reactive systems compared to asnyc. <br>
+
+## When Implementing Javascript and AJAX, there is an application in the paradigms of Event-Driven Programming. Describe the reasoning for those paradigms and state some examples of its application.
+The event-driven is a programming paradigm where the flow of the program is determined by events like user actions (mouse clicks, key presses), sensor outputs, and message passing from other programs or threads. In JavaScript, this comes in the form of event handlers/callback functions/observers/listeners, and an event loop. This paradigm is used in JavaScript (and by extension, AJAX) to synchronize the occurence of multiple events and generally make the program as simple as possible. As event driven programming decouples programmer and user, certain perks are obtained such as being able to retry failed operations, tracking event history, and collaboration between multiple users and producers. <br>
+A few examples of using this paradigm in a program would be: using a button to trigger a form submission, readying and displaying data from a data transfer file when the page is loaded, a notification/pop-up that shows up when a new tab is opened, CSS changing based on mouse position, and many more. <br>
+
+## Describe the implementation of asynchronous programming in AJAX.
+AJAX is a joint task-force of multiple components that create a way to register asynchronous web requests and retrieve a response instead of reloading the page every time an update is made. Those components are notably: HTML, the DOM, the XMLHttpRequest object, the JavaScript method, and any format of data sent to the server. <br>
+The process works like so: <br>
+a) Some event happens on a webpage. <br>
+b) JavaScript creates an XMLHttpRequest object for that event. <br>
+c) This object sends a request to the corresponding web server. <br>
+d) The server processes the request and sends a response back to the browser. <br>
+e) JavaScript reads the response. <br>
+f) JavaScript executes an action based on said response, which is based on a triggering event. <br>
+The entire process does not require a page reload, though it may contain it if defined by the programmer. <br>
+
+## Explain how you would implement the checklist above.
+As a preliminary, I included jQuery into my homepage file (todolist.html) to be able to implement AJAX directly inside the file itself and created a view in views.py that parses the data of tasks that exist into JSON, filters it based on the authenticated user, and serializes it. I also added an "add" view that detects a form submission and saves that form (including information of the user that submitted it) into the database, then redirects back to the homepage. Every newly created view would then be added into urls.py.<br>
+With the initial requirements done, I started coding in JavaScript to modify my page so that it includes an implementation of AJAX starting with AJAX GET. With the $(document).ready event handler, JavaScript code I defined will run once the page Document Object Model (DOM) is ready. Using $.ajax with method GET, I created a function running on the success of the document readying that obtains data from the JSON file attached to the application and uses the data obtained to edit the HTML document. I did this by partitioning my previous code into parts, and adding onto them the data obtained from the JSON file piece-by-piece using string concatenation. The entire string would then be inserted into an HTML element "grid" targetted by its id. This is done for every Task object found in the JSON file. <br>
+After my AJAX GET function is done, I continued on to implementing a modal that will utilize AJAX POST for form submission. Using a combination of code I found on the Bootstrap documentation and my previous HTML code, I created a simple modal that will pop-up when I pressed the corresponding button. Every input is linked to an id for future reference. Inside the modal lies a submit button which I linked to an id and event handler in the JavaScript portion of the document. Again using $.ajax but this time with method POST, once the button is pressed, the view "add" created earlier would pass on the inputs found in every form input (identified by id) as a form to be added onto the database. On a successful form submission, the function would then automatically reload the homepage. <br>
