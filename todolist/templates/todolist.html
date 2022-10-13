@@ -71,7 +71,7 @@
       url: "{% url 'todolist:json' %}", // get json data
       method: 'GET',
       dataType: 'json',
-      success: function(result) {
+      success: async function(result) {
         $(result).each(function(i, task) {  // add content into #grid
           $("#grid")
           .append(part1 + task.fields.task_date + part2 + task.fields.task_title
@@ -84,8 +84,8 @@
     $("#modal").on('hidden.bs.modal', function() {
       $("#modal").find('form').trigger("reset");
     })
-    
-    $("#create").on('click', function(e) {  // detect event on button click
+
+    $("#create").on('click', async function(e) {  // detect event on button click
       e.preventDefault()
       $.ajax({
         method:'POST',
@@ -95,9 +95,22 @@
           task_description: $('#id_task_description').val(),
           csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
         },
-        success: function(data){
-          refreshPage(); // reload asynchronously
-                },
+        success: async function(data){
+          $.ajax({
+            url: "{% url 'todolist:json' %}", // get json data
+            method: 'GET',
+            dataType: 'json',
+            success: async function(result) {
+              $("#grid").empty()
+              $(result).each(function(i, task) {  // add content into #grid
+                $("#grid")
+                .append(part1 + task.fields.task_date + part2 + task.fields.task_title
+                + part3 + task.fields.task_isfinished +
+                part4 + task.fields.task_description + part5 + task.pk + part6 + task.pk + part7);
+        })
+      }
+    })
+      },
       })
     })
   })

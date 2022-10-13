@@ -91,10 +91,13 @@ def add(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
         if form.is_valid():
+            user = request.user
             task = form.save(commit=False)
             task.task_user = request.user
             task.save()
-            return HttpResponseRedirect(reverse("todolist:show_todolist"))
+            data = ToDoTask.objects.filter(task_user = user)
+            return HttpResponse(serializers.serialize("json", data), \
+                content_type="application/json")
     else:
         form = TaskForm()
     return render(request, 'todolist.html', {'form': form})
