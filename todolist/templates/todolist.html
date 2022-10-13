@@ -81,6 +81,10 @@
       }
     })
     
+    $("#modal").on('hidden.bs.modal', function() {
+      $("#modal").find('form').trigger("reset");
+    })
+    
     $("#create").on('click', function(e) {  // detect event on button click
       e.preventDefault()
       $.ajax({
