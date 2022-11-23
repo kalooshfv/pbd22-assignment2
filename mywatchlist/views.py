@@ -48,11 +48,4 @@ def show_json_by_id(request, id):
     return HttpResponse(serializers.serialize("json", data), \
         content_type="application/json")
 
-@csrf_exempt
-def show_json_flutter(request):
-    data = WatchlistItem.objects.all()
-    time.sleep(10)
-    return JsonResponse(data, safe=False)
-
-
 

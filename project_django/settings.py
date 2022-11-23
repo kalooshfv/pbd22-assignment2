@@ -34,15 +34,17 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = (
-    'content-disposition', 
-    'accept-encoding', 
-    'content-type', 
-    'accept', 
-    'origin', 
-    'authorization',
-    'cache-control'
-)
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
@@ -64,7 +66,7 @@ INSTALLED_APPS = [
     'katalog',
     'mywatchlist',
     'todolist',
-    'corsheaders'
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
