@@ -43,6 +43,7 @@ def show_xml_by_id(request, id):
     return HttpResponse(serializers.serialize("xml", data), \
         content_type="application/xml")
 
+@csrf_exempt
 def show_json_by_id(request, id):
     data = WatchlistItem.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), \
