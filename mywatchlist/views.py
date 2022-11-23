@@ -2,6 +2,7 @@ from django.shortcuts import render
 from mywatchlist.models import WatchlistItem
 from django.http import HttpResponse
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def show_watchlist(request):
@@ -30,6 +31,7 @@ def show_xml(request):
     return HttpResponse(serializers.serialize("xml", data), \
         content_type="application/xml")
 
+@csrf_exempt
 def show_json(request):
     data = WatchlistItem.objects.all()
     return HttpResponse(serializers.serialize("json", data), \

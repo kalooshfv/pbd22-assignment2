@@ -24,7 +24,6 @@ def show_todolist(request):
     }
     return render(request, "todolist.html", context)
 
-
 def show_json(request):
     if request.user.is_authenticated:
         user = request.user
