@@ -32,7 +32,15 @@ SECRET_KEY = 'django-insecure-3@5wx%(^*zl68l(o$^m-3%cvjv0g&mom1ra=oj5f048_al57s7
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+# For Flutter
+CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_CREDENTIALS=True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
 
 # Application definition
 
